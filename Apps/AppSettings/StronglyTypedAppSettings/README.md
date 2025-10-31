@@ -15,7 +15,7 @@ It leverages source generators to create strongly-typed accessors for configurat
 To use StronglyTypedAppSettings in your project, add a project reference to `StronglyTypedAppSettings.csproj` in your `.csproj` file:
 
        <ItemGroup>
-		<PackageReference Include="StronglyTypedAppSettings" Version="1.0.3" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+		<PackageReference Include="StronglyTypedAppSettings" Version="1.0.7" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
       </ItemGroup>
 
 
@@ -42,6 +42,11 @@ Ensure your `appsettings.json` file is included in the project:
 
 #### appsettings.json
     {
+      "ConnectionStrings": {
+        "SqlDb": "sql_conn_string",
+        "PostgresDb": "pg_sql_conn_string",
+        "Redis": "redis-server:6379"
+      },
       "AllowedHosts": "*",
       "MaxSize": 5,
       "Email": {
@@ -71,7 +76,7 @@ This is not required but it is a good idea to do so.
         /// <summary>
         /// Name of this application
         /// </summary>
-        public string APP_NAME => "The Grangegeeth Inn";
+        public string APP_NAME => "My Fancy Application";
 
         /// <summary>
         /// Company Colors. Used in Emails etc.
@@ -85,6 +90,14 @@ This is not required but it is a good idea to do so.
 
 
 #### Accessing Configuration Data
+
+
+    var builder = WebApplication.CreateBuilder(args);
+    var env = _builder.Environment;
+    var configuration = _builder.Configuration;
+    var stData = new StartupData(configuration, env);
+
+    var connectionString =  stData.ConnectionStringsSection.GetPostgresDb();
 
     var bccAddresses = stData.EmailSection.GetBccAddresses();
     var ccAddresses = stData.EmailSection.GetCcAddresses();

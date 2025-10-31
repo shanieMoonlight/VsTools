@@ -1,9 +1,11 @@
-﻿namespace AppSettingsAccessor.Tester;
+﻿
+
+namespace StronglyTypedDemo;
 
 /// <summary>
 /// Class with config data for this app
 /// </summary>
-public class StartupData(IConfiguration config): AppSettingsAccessors.AppSettingsAccessor(config)
+public class StartupData(IConfiguration config): StronglyTypedAppSettings.AppSettingsAccessor(config)
 {
     /// <summary>
     /// Name of this application

@@ -9,15 +9,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "@Testers", "@Testers", "{73
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Publishing", "Publishing", "{A0667F1E-9BF8-40F3-9A1D-BA4C9025C988}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSettingsAccessor.Tester", "@Testers\AppSettingsAccessor.Tester\AppSettingsAccessor.Tester.csproj", "{D22A4CD8-4119-237D-87A4-BF74FD777365}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{1EB2F3DB-1F8F-4BD5-919C-76AEE2CCEC05}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppSettings", "AppSettings", "{A22CE684-8EE3-4CF6-AF75-9D62ACC78F2C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StronglyTypedAppSettings", "StronglyTypedAppSettings", "{FCF6785B-BAD7-453C-80BB-B796717446FE}"
 	ProjectSection(SolutionItems) = preProject
+		Publishing\AppSettings\StronglyTypedAppSettings\NUGET_PACKAGING.MD = Publishing\AppSettings\StronglyTypedAppSettings\NUGET_PACKAGING.MD
+		Publishing\AppSettings\StronglyTypedAppSettings\publish-local-cmd.txt = Publishing\AppSettings\StronglyTypedAppSettings\publish-local-cmd.txt
+		Publishing\AppSettings\StronglyTypedAppSettings\publish-local.ps1 = Publishing\AppSettings\StronglyTypedAppSettings\publish-local.ps1
+		Apps\AppSettings\StronglyTypedAppSettings\Utils\publish-nuget-cmd.txt = Apps\AppSettings\StronglyTypedAppSettings\Utils\publish-nuget-cmd.txt
 		Publishing\AppSettings\StronglyTypedAppSettings\publish-nuget.ps1 = Publishing\AppSettings\StronglyTypedAppSettings\publish-nuget.ps1
+		Publishing\AppSettings\StronglyTypedAppSettings\secrets.txt = Publishing\AppSettings\StronglyTypedAppSettings\secrets.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StronglyTypedAppSettings", "Apps\AppSettings\StronglyTypedAppSettings\StronglyTypedAppSettings.csproj", "{3FB2F902-D005-4751-897E-F2EC922BB6D5}"
@@ -33,16 +36,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppSettings", "AppSettings"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StronglyTypedAppSettings.Tests", "Testing\AppSetting\StronglyTypedAppSettings.Tests\StronglyTypedAppSettings.Tests.csproj", "{5215E606-BCB3-4068-8EC0-13EB13F1EC0D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StronglyTypedDemo", "@Testers\StronglyTypedDemo\StronglyTypedDemo.csproj", "{B1E8672C-1B40-4156-959D-D05F125A5765}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StronglyTypedLocalDemo", "@Testers\StronglyTypedLocalDemo\StronglyTypedLocalDemo.csproj", "{6914E8D6-1028-496A-B3EC-3A9C222E4DF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D22A4CD8-4119-237D-87A4-BF74FD777365}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D22A4CD8-4119-237D-87A4-BF74FD777365}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D22A4CD8-4119-237D-87A4-BF74FD777365}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D22A4CD8-4119-237D-87A4-BF74FD777365}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3FB2F902-D005-4751-897E-F2EC922BB6D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3FB2F902-D005-4751-897E-F2EC922BB6D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FB2F902-D005-4751-897E-F2EC922BB6D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,18 +54,27 @@ Global
 		{5215E606-BCB3-4068-8EC0-13EB13F1EC0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5215E606-BCB3-4068-8EC0-13EB13F1EC0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5215E606-BCB3-4068-8EC0-13EB13F1EC0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1E8672C-1B40-4156-959D-D05F125A5765}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1E8672C-1B40-4156-959D-D05F125A5765}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1E8672C-1B40-4156-959D-D05F125A5765}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1E8672C-1B40-4156-959D-D05F125A5765}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6914E8D6-1028-496A-B3EC-3A9C222E4DF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6914E8D6-1028-496A-B3EC-3A9C222E4DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6914E8D6-1028-496A-B3EC-3A9C222E4DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6914E8D6-1028-496A-B3EC-3A9C222E4DF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {1EB2F3DB-1F8F-4BD5-919C-76AEE2CCEC05}
-		{D22A4CD8-4119-237D-87A4-BF74FD777365} = {7381D182-29A1-4BC3-8FA8-F8F3F9A9B4D6}
 		{A22CE684-8EE3-4CF6-AF75-9D62ACC78F2C} = {A0667F1E-9BF8-40F3-9A1D-BA4C9025C988}
 		{FCF6785B-BAD7-453C-80BB-B796717446FE} = {A22CE684-8EE3-4CF6-AF75-9D62ACC78F2C}
 		{3FB2F902-D005-4751-897E-F2EC922BB6D5} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{A9ED2F5D-CE0A-4A4C-9653-9B3CD7C08327} = {559A5230-3A65-4BE3-BD55-1C5947D979C0}
 		{5215E606-BCB3-4068-8EC0-13EB13F1EC0D} = {A9ED2F5D-CE0A-4A4C-9653-9B3CD7C08327}
+		{B1E8672C-1B40-4156-959D-D05F125A5765} = {7381D182-29A1-4BC3-8FA8-F8F3F9A9B4D6}
+		{6914E8D6-1028-496A-B3EC-3A9C222E4DF1} = {7381D182-29A1-4BC3-8FA8-F8F3F9A9B4D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DE01CABB-7B6F-40AF-B916-06A938287BB2}

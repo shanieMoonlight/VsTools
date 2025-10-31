@@ -1,0 +1,1 @@
+C:\Users\Shaneyboy\source\repos\VsTools\Publishing\AppSettings\StronglyTypedAppSettings\publish-nuget.ps1

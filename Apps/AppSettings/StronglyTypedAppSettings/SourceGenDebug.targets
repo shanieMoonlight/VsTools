@@ -1,0 +1,16 @@
+﻿<Project>
+	<Target Name="WriteSourceGenOutputToFile" AfterTargets="CoreCompile">
+		<PropertyGroup>
+			<SourceGenOutputDir>$(MSBuildProjectDirectory)\SourceGenOutput</SourceGenOutputDir>
+		</PropertyGroup>
+		<MakeDir Directories="$(SourceGenOutputDir)" />
+		<WriteLinesToFile
+		  File="$(SourceGenOutputDir)\AppSettingsDefinitions.cs"
+		  Lines="$(_AppSettingsDefinitionsContent)"
+		  Overwrite="true" />
+		<WriteLinesToFile
+		  File="$(SourceGenOutputDir)\AppSettingsAccessor.cs"
+		  Lines="$(_AppSettingsAccessorContent)"
+		  Overwrite="true" />
+	</Target>
+</Project>

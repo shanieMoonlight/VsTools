@@ -1,0 +1,6 @@
+@StronglyTypedLocalDemo_HostAddress = http://localhost:5252
+
+GET {{StronglyTypedLocalDemo_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

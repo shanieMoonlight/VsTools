@@ -40,7 +40,7 @@ public class AppSettingsAccessorsGenerator : IIncrementalGenerator
     /// </remarks>
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
-        // Access MSBuild properties via AnalyzerConfigOptionsProvider
+        // Access MSBuild properties via AnalyzerConfigOptionsProvider  
         var versionProvider = context.AnalyzerConfigOptionsProvider
             .Select((options, _) =>
             {
@@ -83,29 +83,12 @@ public class AppSettingsAccessorsGenerator : IIncrementalGenerator
                 var appSettingsJsonSourceText = file.GetText();
                 var appSettingsJsonText = appSettingsJsonSourceText.ToString();
 
-                var defsClass = AppSettingsDefinitionsGenerator.GenerateDefinitionsClass(appSettingsJsonText, _nameSpace, VersionProvider.Version);
-                var accessorClass = AppSettingsAccessorGenerator.GenerateAccessorClass(defsClass, _nameSpace, VersionProvider.Version);
-
+                var defsClass = AppSettingsDefinitionsGenerator.GenerateDefinitionsClass(appSettingsJsonText, _nameSpace, $"Version: {VersionProvider.Version}");
+                var accessorClass = AppSettingsAccessorGenerator.GenerateAccessorClass(defsClass, _nameSpace, $"Version: {VersionProvider.Version}");
                 spc.AddSource("AppSettingsDefinitions.cs", SourceText.From(defsClass, Encoding.UTF8));
                 spc.AddSource("AppSettingsAccessor.cs", SourceText.From(accessorClass, Encoding.UTF8));
             }
         });
-
-        //// Register a source output that generates the strongly-typed classes
-        //context.RegisterSourceOutput(additionalFiles, (spc, text) =>
-        //{
-        //    if (IsMainAppsettingsFile(text))
-        //    {
-        //        var appSettingsJsonSourceText = text.GetText();
-        //        var appSettingsJsonText = appSettingsJsonSourceText.ToString();
-
-        //        var defsClass = AppSettingsDefinitionsGenerator.GenerateDefinitionsClass(appSettingsJsonText, _nameSpace, version);
-        //        var accessorClass = AppSettingsAccessorGenerator.GenerateAccessorClass(defsClass, _nameSpace);
-
-        //        spc.AddSource("AppSettingsDefinitions.cs", SourceText.From(defsClass, Encoding.UTF8));
-        //        spc.AddSource("AppSettingsAccessor.cs", SourceText.From(accessorClass, Encoding.UTF8));
-        //    }
-        //});
     }
 
     //---------------------------------//

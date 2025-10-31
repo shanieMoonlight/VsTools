@@ -1,0 +1,7 @@
+if (_allowedOrigins == null || _allowedOrigins.Length == 0)
+{
+    var allowedSection = _configuration.GetSection(AppSettingsDefinitions.AllowedOriginsKey);
+    var scalar = allowedSection.Value;
+    if (!string.IsNullOrWhiteSpace(scalar))
+        _allowedOrigins = scalar.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+}

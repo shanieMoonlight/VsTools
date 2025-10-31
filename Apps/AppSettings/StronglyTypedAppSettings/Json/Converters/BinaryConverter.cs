@@ -163,7 +163,7 @@ namespace StronglyTyped.Newtonsoft.Json.Converters
 
         private byte[] ReadByteArray(JsonReader reader)
         {
-            List<byte> byteList = new List<byte>();
+            List<byte> byteList = [];
 
             while (reader.Read())
             {

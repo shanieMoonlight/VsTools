@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateProgramFile>false</GenerateProgramFile>
@@ -13,7 +14,7 @@
 
     <!-- NuGet Package Metadata -->
     <PackageId>StronglyTypedAppSettings</PackageId>
-    <Version>1.0.5</Version>
+    <Version>1.0.7</Version>
     <Authors>ShanieMoonlight</Authors>
     <Description>A source generator for strongly-typed access to appsettings.json.</Description>
     <PackageTags>source-generator;appsettings;configuration</PackageTags>
@@ -28,6 +29,13 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
+
+  <ItemGroup>
+    <Compile Remove="bin\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <None Remove="bin\**" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0">
       <PrivateAssets>all</PrivateAssets>
@@ -36,11 +44,22 @@
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" PrivateAssets="all" Version="4.13.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="bin\Release\netstandard2.0\StronglyTypedAppSettings.dll" />
+  </ItemGroup>
+
   <!-- Include the DLL as an analyzer -->
   <ItemGroup>
     <None Include="$(OutputPath)$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" />
+    <None Remove="bin\Release\netstandard2.0\StronglyTypedAppSettings.xml" />
     <None Include="$(OutputPath)$(AssemblyName).xml" Pack="true" PackagePath="analyzers/dotnet/cs" />
   </ItemGroup>
+
+	<ItemGroup>
+		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+			<_Parameter1>StronglyTypedAppSettings.Tests</_Parameter1>
+		</AssemblyAttribute>
+	</ItemGroup>
 
 	
 	<!--NEWTON_SOFT stuff-->

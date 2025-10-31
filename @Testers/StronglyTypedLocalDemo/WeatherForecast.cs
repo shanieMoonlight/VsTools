@@ -1,4 +1,4 @@
-namespace AppSettingsAccessorTester;
+namespace StronglyTypedLocalDemo;
 
 public class WeatherForecast
 {
